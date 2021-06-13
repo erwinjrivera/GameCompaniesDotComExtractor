@@ -7,7 +7,7 @@ C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtr
 C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\obj\Debug\GameCompaniesDotComExtractor.csproj.CoreCompileInputs.cache
 C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\obj\Debug\GameCompaniesDotComExtractor.exe
 C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\obj\Debug\GameCompaniesDotComExtractor.pdb
-C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\obj\Debug\GameCompaniesDotComExtractor.csproj.AssemblyReference.cache
 C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\obj\Debug\GameCompaniesDotComExtractor.csproj.CopyComplete
+C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\obj\Debug\GameCompaniesDotComExtractor.csproj.AssemblyReference.cache

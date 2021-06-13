@@ -26,31 +26,31 @@ namespace GameCompaniesDotComExtractor.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("{\"operationName\":\"getIndustryCompaniesBySlug\",\"variables\":{\"industrySlug\":\"%indus" +
-            "trySlug%\",\"sortByName\":1,\"tagNames\":[],\"limit\":25,\"offset\":0},\"query\":\"query get" +
-            "IndustryCompaniesBySlug($citySlug: String, $countrySlug: String, $industrySlug: " +
-            "String, $limit: Int, $offset: Int, $regionSlug: String, $sortByName: Int, $tagNa" +
-            "mes: [String]) {\\n  result: getIndustryCompaniesBySlug(app: \\\"gcinsider\\\", cityS" +
-            "lug: $citySlug, countrySlug: $countrySlug, industrySlug: $industrySlug, limit: $" +
-            "limit, offset: $offset, regionSlug: $regionSlug, sortByName: $sortByName, tagNam" +
-            "es: $tagNames) {\\n    total\\n    industrySlug\\n    companies {\\n      _id\\n     " +
-            " name\\n      slug\\n      short\\n      description\\n      picRelUrl\\n      coverR" +
-            "elUrl\\n      website\\n      jobWebsite\\n    imgs {\\n      _id\\n      path\\n     " +
-            " __typename\\n    }\\n    tags {\\n      _id\\n      name\\n      __typename\\n    }\\n" +
-            "    nrOfEmployees\\n    established\\n    locations {\\n      _id\\n      latitude\\n" +
-            "      longitude\\n      formattedAddress\\n      __typename\\n    }\\n    headquarte" +
-            "rs {\\n      _id\\n      fullAddress\\n      countryDoc {\\n        _id\\n        nam" +
-            "e\\n        slug\\n        adjective\\n        __typename\\n      }\\n      regionDoc" +
-            " {\\n        _id\\n        name\\n        slug\\n        __typename\\n      }\\n      " +
-            "cityDoc {\\n        _id\\n        name\\n        slug\\n        __typename\\n      }\\" +
-            "n      __typename\\n    }\\n      firstTag {\\n        _id\\n        name\\n        _" +
-            "_typename\\n      }\\n      picRelUrl\\n      firstLocation(industrySlug: $industry" +
-            "Slug, countrySlug: $countrySlug, regionSlug: $regionSlug, citySlug: $citySlug) {" +
-            "\\n        _id\\n        countryDoc {\\n          _id\\n          name\\n          sl" +
-            "ug\\n          adjective\\n          __typename\\n        }\\n        regionDoc {\\n " +
-            "         _id\\n          name\\n          slug\\n          __typename\\n        }\\n " +
-            "       cityDoc {\\n          _id\\n          name\\n          slug\\n          __typ" +
-            "ename\\n        }\\n        __typename\\n      }\\n      __typename\\n    }\\n    __ty" +
-            "pename\\n  }\\n}\\n\"}")]
+            "trySlug%\",\"sortByName\":1,\"tagNames\":[],\"limit\":10000,\"offset\":0},\"query\":\"query " +
+            "getIndustryCompaniesBySlug($citySlug: String, $countrySlug: String, $industrySlu" +
+            "g: String, $limit: Int, $offset: Int, $regionSlug: String, $sortByName: Int, $ta" +
+            "gNames: [String]) {\\n  result: getIndustryCompaniesBySlug(app: \\\"gcinsider\\\", ci" +
+            "tySlug: $citySlug, countrySlug: $countrySlug, industrySlug: $industrySlug, limit" +
+            ": $limit, offset: $offset, regionSlug: $regionSlug, sortByName: $sortByName, tag" +
+            "Names: $tagNames) {\\n    total\\n    industrySlug\\n    companies {\\n      _id\\n  " +
+            "    name\\n      slug\\n      short\\n      description\\n      picRelUrl\\n      cov" +
+            "erRelUrl\\n      website\\n      jobWebsite\\n    imgs {\\n      _id\\n      path\\n  " +
+            "    __typename\\n    }\\n    tags {\\n      _id\\n      name\\n      __typename\\n    " +
+            "}\\n    nrOfEmployees\\n    established\\n    locations {\\n      _id\\n      latitud" +
+            "e\\n      longitude\\n      formattedAddress\\n      __typename\\n    }\\n    headqua" +
+            "rters {\\n      _id\\n      fullAddress\\n      countryDoc {\\n        _id\\n        " +
+            "name\\n        slug\\n        adjective\\n        __typename\\n      }\\n      region" +
+            "Doc {\\n        _id\\n        name\\n        slug\\n        __typename\\n      }\\n   " +
+            "   cityDoc {\\n        _id\\n        name\\n        slug\\n        __typename\\n     " +
+            " }\\n      __typename\\n    }\\n      firstTag {\\n        _id\\n        name\\n      " +
+            "  __typename\\n      }\\n      picRelUrl\\n      firstLocation(industrySlug: $indus" +
+            "trySlug, countrySlug: $countrySlug, regionSlug: $regionSlug, citySlug: $citySlug" +
+            ") {\\n        _id\\n        countryDoc {\\n          _id\\n          name\\n         " +
+            " slug\\n          adjective\\n          __typename\\n        }\\n        regionDoc {" +
+            "\\n          _id\\n          name\\n          slug\\n          __typename\\n        }" +
+            "\\n        cityDoc {\\n          _id\\n          name\\n          slug\\n          __" +
+            "typename\\n        }\\n        __typename\\n      }\\n      __typename\\n    }\\n    _" +
+            "_typename\\n  }\\n}\\n\"}")]
         public string Data1 {
             get {
                 return ((string)(this["Data1"]));
