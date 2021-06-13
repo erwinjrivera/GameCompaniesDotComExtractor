@@ -1,0 +1,9 @@
+C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\bin\Release\GameCompaniesDotComExtractor.exe.config
+C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\bin\Release\GameCompaniesDotComExtractor.exe
+C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\bin\Release\GameCompaniesDotComExtractor.pdb
+C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\obj\Release\GameCompaniesDotComExtractor.Form1.resources
+C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\obj\Release\GameCompaniesDotComExtractor.Properties.Resources.resources
+C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\obj\Release\GameCompaniesDotComExtractor.csproj.GenerateResource.cache
+C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\obj\Release\GameCompaniesDotComExtractor.csproj.CoreCompileInputs.cache
+C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\obj\Release\GameCompaniesDotComExtractor.exe
+C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\obj\Release\GameCompaniesDotComExtractor.pdb
