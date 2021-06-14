@@ -36,56 +36,42 @@ namespace GameCompaniesDotComExtractor
             this.Text = this.Text + " (v" + Assembly.GetEntryAssembly().GetName().Version.ToString() + ")";
 
             lblDownload.Visible = false;
-            dataGridView1.DataSource = items;
+            dataGridView1.DataSource = table;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (!backgroundWorker1.IsBusy)
             {
+                this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                table = CreateDataTable();
                 cbIndustries.Enabled = false;
-                lblStatus.Text = "Processing...";
+                button1.Text = "Initializing...";
+                lblStatus.Text = "Please wait. Extraction in progress...";
                 backgroundWorker1.RunWorkerAsync(cbIndustries.SelectedItem.ToString());
             }
         }
 
-        private void CreateObject(string industry)
+        private System.Data.DataTable CreateDataTable()
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
-            request.Method = "POST";
-            request.ContentType = "application/json";
+            System.Data.DataTable table = new System.Data.DataTable();
 
-            DATA = Properties.Settings.Default.Data1;
-            DATA = DATA.Replace("%industrySlug%", industry);
+            table.Columns.Add("Name", typeof(string));
+            table.Columns.Add("Description", typeof(string));
+            table.Columns.Add("Website", typeof(string));
+            table.Columns.Add("LogoURL", typeof(string));
+            table.Columns.Add("Tag", typeof(string));
+            table.Columns.Add("NumberOfEmployees", typeof(string));
+            table.Columns.Add("Established", typeof(string));
+            table.Columns.Add("Address", typeof(string));
+            table.Columns.Add("Country", typeof(string));
+            table.Columns.Add("Region", typeof(string));
+            table.Columns.Add("City", typeof(string));
+            table.Columns.Add("Headquarters", typeof(string));
+            table.Columns.Add("Profile", typeof(string));
 
-            request.ContentLength = DATA.Length;
-
-            using (Stream webStream = request.GetRequestStream())
-            using (StreamWriter requestWriter = new StreamWriter(webStream, System.Text.Encoding.ASCII))
-            {
-                requestWriter.Write(DATA);
-            }
-
-            try
-            {
-                Root myDeserializedClass = null;
-                WebResponse webResponse = request.GetResponse();
-                using (Stream webStream = webResponse.GetResponseStream() ?? Stream.Null)
-                using (StreamReader responseReader = new StreamReader(webStream))
-                {
-                    string response = responseReader.ReadToEnd();
-                    //Debug.WriteLine(response);
-
-                    myDeserializedClass = JsonConvert.DeserializeObject<Root>(response);
-                }
-
-                items = TestYield(myDeserializedClass.data.result.companies).ToList();
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine("-----------------");
-                Debug.WriteLine(e.Message);
-            }
+            return table;
         }
 
         public IEnumerable<Item> TestYield(List<Company> companies)
@@ -157,22 +143,99 @@ namespace GameCompaniesDotComExtractor
         }
 
         List<Item> items = new List<Item>();
+        DataTable table = new DataTable();
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            CreateObject(e.Argument.ToString());
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
+            request.Method = "POST";
+            request.ContentType = "application/json";
+
+            DATA = Properties.Settings.Default.Data1;
+            DATA = DATA.Replace("%industrySlug%", e.Argument.ToString());
+
+            request.ContentLength = DATA.Length;
+
+            using (Stream webStream = request.GetRequestStream())
+            {
+                backgroundWorker1.ReportProgress(100, "Sending request to server...");
+
+                using (StreamWriter requestWriter = new StreamWriter(webStream, System.Text.Encoding.ASCII))
+                {
+                    requestWriter.Write(DATA);
+                }
+            }
+
+            try
+            {
+                backgroundWorker1.ReportProgress(100, "Awaiting response from the server...");
+                Root myDeserializedClass = null;
+                WebResponse webResponse = request.GetResponse();
+                using (Stream webStream = webResponse.GetResponseStream() ?? Stream.Null)
+                using (StreamReader responseReader = new StreamReader(webStream))
+                {
+                    backgroundWorker1.ReportProgress(100, "Extracting data...");
+                    string response = responseReader.ReadToEnd();
+                    //Debug.WriteLine(response);
+
+                    
+                    myDeserializedClass = JsonConvert.DeserializeObject<Root>(response);
+                }
+
+                items = TestYield(myDeserializedClass.data.result.companies).ToList();
+
+                foreach (var item in items)
+                {
+                    DataRow row = table.NewRow();
+
+                    row["Name"] = item.Name;
+                    row["Description"] = item.Description;
+                    row["Profile"] = item.Profile;
+                    row["LogoURL"] = item.LogoURL;
+                    row["Website"] = item.Website;
+                    row["Tag"] = item.Tag;
+                    row["NumberOfEmployees"] = item.NumberOfEmployees;
+                    row["Established"] = item.Established;
+                    row["Address"] = item.Address;
+                    row["Country"] = item.Country;
+                    row["Region"] = item.Region;
+                    row["City"] = item.City;
+                    row["Headquarters"] = item.Headquarters;
+
+                    table.Rows.Add(row);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("-----------------");
+                Debug.WriteLine(ex.Message);
+            }
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            button1.AutoSize = true;
+            button1.Text = e.UserState.ToString();
+            
+            button1.Invalidate();
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            dataGridView1.DataSource = items;
+            dataGridView1.DataSource = table;
+
+            if (dataGridView1.Rows.Count > 0)
+                dataGridView1.Columns["Description"].Width = 400;
 
             cbIndustries.Enabled = true;
             lblStatus.Text = string.Empty;
+
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            button1.Text = "Start";
+            button1.AutoSize = true;
+            
+            button1.Invalidate();
+
         }
     }
 }
