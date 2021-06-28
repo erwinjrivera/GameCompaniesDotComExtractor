@@ -66,7 +66,7 @@ namespace GameCompaniesDotComExtractor
 
 			Regex urlMatcher = new Regex(pattern, RegexOptions.CultureInvariant | RegexOptions.Compiled);
 			var result = new Dictionary<Version, Uri>();
-			WebRequest wrq = WebRequest.Create(string.Concat("https://github.com", GitHubRepo, "/releases"));
+			WebRequest wrq = WebRequest.Create(string.Concat("https://github.com", GitHubRepo, "/releases/latest"));
 			WebResponse wrs = null;
 			try
 			{

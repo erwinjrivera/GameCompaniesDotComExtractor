@@ -107,10 +107,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ZZupdater0.exe" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="icon_48_appbar.ico" />
+    <EmbeddedResource Include="ZZupdater0.exe" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

@@ -132,9 +132,12 @@ namespace GameCompaniesDotComExtractor
 
             try
             {
-                File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\" + cbIndustries.SelectedItem.ToString() + "-output.txt", sb.ToString());
+                string filename = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\" + cbIndustries.SelectedItem.ToString() + "-output.txt";
+                File.WriteAllText(filename, sb.ToString());
 
-                Notepad.SendText(sb.ToString());
+                //Notepad.SendText(sb.ToString());
+
+                Process notepad = Process.Start(filename);
             }
             catch(Exception ex)
             {

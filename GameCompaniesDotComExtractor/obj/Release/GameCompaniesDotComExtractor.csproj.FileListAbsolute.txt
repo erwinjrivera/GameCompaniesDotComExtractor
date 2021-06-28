@@ -10,4 +10,3 @@ C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtr
 C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\bin\Release\Newtonsoft.Json.dll
 C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\bin\Release\Newtonsoft.Json.xml
 C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\obj\Release\GameCompaniesDotComExtractor.csproj.CopyComplete
-C:\Users\Kris\Documents\Git\GameCompaniesDotComExtractor\GameCompaniesDotComExtractor\obj\Release\GameCompaniesDotComExtractor.csproj.AssemblyReference.cache
